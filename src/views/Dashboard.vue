@@ -28,19 +28,20 @@
       </v-flex>
       <v-flex>
         <v-select
+          solo
           :items="items"
           label="Solo field"
           class="custom-input custom-select"
           :menu-props="{'offset-y':true}"
-          solo
         ></v-select>
       </v-flex>
       <v-flex>
         <v-select
+          solo
           :items="items"
           label="Solo field"
           class="custom-input custom-select"
-          solo
+          :menu-props="{'offset-y':true}"
         ></v-select>
       </v-flex>
     </v-layout>
@@ -99,7 +100,6 @@ export default {
   margin: 0 !important;
 }
 .custom-select .v-select__selections{
-  /* background: pink; */
 }
 </style>
 
