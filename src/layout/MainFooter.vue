@@ -1,41 +1,22 @@
-<template>
-  <footer
-    class="footer"
-    :class="{ [`footer-${type}`]: type }"
-    :data-background-color="backgroundColor"
-  >
-    <div class="container">
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="https:///presentation.creative-tim.com">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="https:///blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright">
-        &copy; {{ year }}, made with <md-icon>favorite</md-icon> by
-        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>
-        for a better web.
-      </div>
-    </div>
-  </footer>
+<template lang="pug">
+  footer.footer(:class="{ [`footer-${type}`]: type }" :data-background-color="backgroundColor")
+    .container
+      nav
+        ul
+          li
+            a(href="https://www.creative-tim.com") Creative Tim
+          li
+            a(href="https:///presentation.creative-tim.com") About Us
+          li
+            a(href="https:///blog.creative-tim.com") Blog
+          li
+            a(href="https://www.creative-tim.com/license") Licenses
+      .copyright 
+        | &copy; {{ year }}, made with 
+        md-icon favorite
+        | by
+        a(href="https://www.creative-tim.com/" target="_blank") Creative Tim
+        | for a better web.
 </template>
 <script>
 export default {
