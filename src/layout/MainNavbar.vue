@@ -1,121 +1,66 @@
-<template>
-  <md-toolbar
-    id="toolbar"
-    md-elevation="0"
-    class="md-transparent md-absolute"
-    :class="extraNavClasses"
-    :color-on-scroll="colorOnScroll"
-  >
-    <div class="md-toolbar-row md-collapse-lateral">
-      <div class="md-toolbar-section-start">
-        <h3 class="md-title">모모마트</h3>
-      </div>
-      <div class="md-toolbar-section-end">
-        <!-- <md-button
-          class="md-just-icon md-simple md-toolbar-toggle"
-          :class="{ toggled: toggledClass }"
-          @click="toggleNavbarMobile()"
-        >
-          <span class="icon-bar">111</span>
-          <span class="icon-bar">222</span>
-          <span class="icon-bar">333</span>
-        </md-button> -->
-
-        <div class="md-collapse">
-          <div class="md-collapse-wrapper">
-            <mobile-menu nav-mobile-section-start="false">
-              <!-- Here you can add your items from the section-start of your toolbar -->
-            </mobile-menu>
-            <md-list>
-              <!-- <li class="md-list-item">
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <md-button
-                        slot="title"
-                        class="md-button md-button-link md-white md-simple dropdown-toggle"
-                        data-toggle="dropdown"
-                      >
-                        <i class="material-icons">apps</i>
-                        <p>Components</p>
-                      </md-button>
-                      <ul>
-                        <li>
-                          <a href="#/">
-                            <i class="material-icons">layers</i>
-                            <p>Home</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/Sample">
-                            <i class="material-icons">layers</i>
-                            <p>All Components</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/landing">
-                            <i class="material-icons">view_day</i>
-                            <p>Landing Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/login">
-                            <i class="material-icons">fingerprint</i>
-                            <p>Login Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/profile">
-                            <i class="material-icons">account_circle</i>
-                            <p>Profile Page</p>
-                          </a>
-                        </li>
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li> -->
-
-              <li class="md-list-item">
-                <a href="#/">
-                  <i class="material-icons">home</i>
-                  <p>Home</p>
-                </a>
-              </li>
-              <li class="md-list-item">
-                <a href="#/Sample">
-                  <i class="material-icons">favorite</i>
-                  <p>All Components</p>
-                </a>
-              </li>
-              <li class="md-list-item">
-                <a href="#/landing">
-                  <i class="material-icons">view_day</i>
-                  <p>Landing Page</p>
-                </a>
-              </li>
-              <li class="md-list-item">
-                <a href="#/login">
-                  <i class="material-icons">fingerprint</i>
-                  <p>Login Page</p>
-                </a>
-              </li>
-              <li class="md-list-item">
-                <a href="#/profile">
-                  <i class="material-icons">account_circle</i>
-                  <p>Profile Page</p>
-                </a>
-              </li>
-            </md-list>
-          </div>
-        </div>
-      </div>
-    </div>
-  </md-toolbar>
+<template lang="pug">
+  md-toolbar#toolbar.md-transparent.md-absolute(md-elevation="0" :class="extraNavClasses" :color-on-scroll="colorOnScroll")
+    .md-toolbar-row.md-collapse-lateral
+      .md-toolbar-section-start
+        h3.md-title 모모마트
+      .md-toolbar-section-end
+        //- md-button.md-just-icon.md-simple.md-toolbar-toggle(:class="{ toggled: toggledClass }" @click="toggleNavbarMobile()")
+          span.icon-bar 111
+          span.icon-bar 222
+          span.icon-bar 333
+        .md-collapse
+          .md-collapse-wrapper
+            mobile-menu(nav-mobile-section-start="false")
+              //- Here you can add your items from the section-start of your toolbar
+            md-list
+              //- li.md-list-item
+                a.md-list-item-router.md-list-item-container.md-button-clean.dropdown(href="javascript:void(0)")
+                  .md-list-item-content
+                    drop-down(direction="down")
+                      md-button.md-button.md-button-link.md-white.md-simple.dropdown-toggle(slot="title" data-toggle="dropdown")
+                        i.material-icons apps
+                        p Components
+                      ul
+                        li
+                          a(href="#/")
+                            i.material-icons layers
+                            p Home
+                        li
+                          a(href="#/Sample")
+                            i.material-icons layers
+                            p All Components
+                        li
+                          a(href="#/landing")
+                            i.material-icons view_day
+                            p Landing Page
+                        li
+                          a(href="#/login")
+                            i.material-icons fingerprint
+                            p Login Page
+                        li
+                          a(href="#/profile")
+                            i.material-icons account_circle
+                            p Profile Page
+              li.md-list-item
+                a(href="#/")
+                  i.material-icons home
+                  p Home
+              li.md-list-item
+                a(href="#/Sample")
+                  i.material-icons favorite
+                  p All Components
+              li.md-list-item
+                a(href="#/landing")
+                  i.material-icons view_day
+                  p Landing Page
+              li.md-list-item
+                a(href="#/login")
+                  i.material-icons fingerprint
+                  p Login Page
+              li.md-list-item
+                a(href="#/profile")
+                  i.material-icons account_circle
+                  p Profile Page
 </template>
 
 <script>
