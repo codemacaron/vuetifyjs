@@ -27,7 +27,9 @@
                     h4.info-title {{item.title}}
                     h5 {{item.price}} 원
                     p {{item.content}}
-      .section.text-center
+            p.last-list 리스트가 더이상 없습니다.
+            //- md-button.md-primary(@click="") 리스트 더보기 
+      //- .section.text-center
         .container
           h2.title
             | Here is our team
@@ -95,7 +97,7 @@
                         i.fab.fa-instagram
                       md-button.md-just-icon.md-simple(href="javascript:void(0)")
                         i.fab.fa-facebook-square
-      .section.section-contacts
+      //- .section.section-contacts
         .container
           .md-layout
             .md-layout-item.md-size-66.md-xsmall-size-100.mx-auto
@@ -121,7 +123,9 @@
 </template>
 
 <script>
+import axios from 'axios'
 import ListData from './../assets/list.json'
+import { log } from 'util';
 export default {
   bodyClass: "landing-page",
   props: {
@@ -147,7 +151,9 @@ export default {
       name: null,
       email: null,
       message: null,
-      content: ListData
+      content: ListData,
+      bottom: false,
+      num: 1
     };
   },
   computed: {
@@ -156,6 +162,33 @@ export default {
         backgroundImage: `url(${this.header})`
       };
     }
+  },
+  methods: {
+    // 페이지의 맨 아래인지 확인하는 부분
+    bottomVisible () {
+      var scrollY = window.pageYOffset
+      var visible = document.documentElement.clientHeight
+      var pageHeight = document.documentElement.scrollHeight
+      var bottomOfPage = visible + scrollY >= pageHeight
+      console.log(bottomOfPage || pageHeight < visible)
+      return bottomOfPage || pageHeight < visible
+    },
+    // 페이지 맨 아래라면 리스트 불러오기
+    infiniteScroll () {
+      window.addEventListener('scroll', () => {
+        this.bottom = this.bottomVisible()
+        if (this.bottom) {
+          let Api = 'https://comento.cafe24.com/request.php?page=' + this.num + '&ord=asc'
+          axios.get(Api).then((response) => {
+            this.content.push(response.data.list)
+            console.log(++this.num)
+          }).catch(error => console.error('실행실패 ::: ', error.message))
+        }
+      })
+    }
+  },
+  created () {
+    this.infiniteScroll()
   }
 };
 </script>
