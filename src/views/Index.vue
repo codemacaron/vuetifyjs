@@ -181,7 +181,8 @@ export default {
           let Api = 'https://comento.cafe24.com/request.php?page=' + this.num + '&ord=asc'
           axios.get(Api).then((response) => {
             this.content.push(response.data.list)
-            console.log(++this.num)
+            console.log(response.data.list)
+            this.num++
           }).catch(error => console.error('실행실패 ::: ', error.message))
         }
       })
