@@ -28,7 +28,7 @@
                     h5 {{item.price}} 원
                     p {{item.content}}
             p.last-list 리스트가 더이상 없습니다.
-            //- md-button.md-primary(@click="") 리스트 더보기 
+            md-button.md-primary(@click="") 리스트 더보기 
       //- .section.text-center
         .container
           h2.title
