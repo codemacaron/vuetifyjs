@@ -28,7 +28,7 @@
                     h5 {{item.price}} 원
                     p {{item.content}}
             p.last-list 리스트가 더이상 없습니다.
-            md-button.md-primary(@click="") 리스트 더보기 
+            md-button.md-primary(@click="getList()") 리스트 더보기 
       //- .section.text-center
         .container
           h2.title
@@ -178,18 +178,21 @@ export default {
       window.addEventListener('scroll', () => {
         this.bottom = this.bottomVisible()
         if (this.bottom) {
-          let Api = 'https://comento.cafe24.com/request.php?page=' + this.num + '&ord=asc'
-          axios.get(Api).then((response) => {
-            this.content.push(response.data.list)
-            console.log(response.data.list)
-            this.num++
-          }).catch(error => console.error('실행실패 ::: ', error.message))
+          this.getList()
         }
       })
+    },
+    getList(){
+      let Api = 'https://comento.cafe24.com/request.php?page=' + this.num + '&ord=asc'
+        axios.get(Api).then((response) => {
+          this.content.push(response.data.list)
+          console.log(response.data.list)
+          this.num++
+        }).catch(error => console.error('실행실패 ::: ', error.message))
     }
   },
   created () {
-    this.infiniteScroll()
+    // this.infiniteScroll()
   }
 };
 </script>
