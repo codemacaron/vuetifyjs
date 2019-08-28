@@ -125,7 +125,6 @@
 <script>
 import axios from 'axios'
 import ListData from './../assets/list.json'
-import { log } from 'util';
 export default {
   bodyClass: "landing-page",
   props: {
