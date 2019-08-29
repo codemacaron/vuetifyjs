@@ -184,10 +184,10 @@ export default {
     getList(){
       let Api = 'https://comento.cafe24.com/request.php?page=' + this.num + '&ord=asc'
         axios.get(Api).then((response) => {
-          this.content.push(response.data.list)
-          console.log(response.data.list)
+          this.content = this.content.concat(response.data.list)
           this.num++
         }).catch(error => console.error('실행실패 ::: ', error.message))
+        console.log(this.content)
     }
   },
   created () {
